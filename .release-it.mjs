@@ -19,7 +19,7 @@ export default {
     "before:init": "git fetch --prune --prune-tags origin",
   },
   npm: {
-    publish: true,
+    publish: false,
   },
   plugins: {
     "@release-it/conventional-changelog": {

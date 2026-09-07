@@ -20,7 +20,15 @@ jobs:
           git_username: ${{ secrets.GIT_USERNAME }}
           github_token: ${{ secrets.RELEASE_IT_GITHUB_TOKEN }}
           plugins_list: "@release-it/conventional-changelog"
-          command: "--no-npm.publish"
+
+  publish:
+    needs: release
+    if: github.repository == 'crxig-rxberts/code-standards'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
 
       - uses: actions/setup-node@v4
         with:

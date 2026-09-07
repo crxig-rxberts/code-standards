@@ -4,6 +4,10 @@
   "description": "Shared lint/format/commit-hook standards (oxlint, oxfmt, prek, terraform fmt/tflint, markdownlint, conventional commits) for crxig-rxberts projects",
   "type": "module",
   "exports": "./index.mjs",
+  "files": [
+    "index.mjs",
+    "bin/"
+  ],
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
