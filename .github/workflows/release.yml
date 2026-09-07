@@ -12,13 +12,13 @@ jobs:
     timeout-minutes: 10
     steps:
       - name: Checkout repository
-        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
           token: ${{ secrets.RELEASE_IT_GITHUB_TOKEN }}
           fetch-depth: 0
 
       - name: Run release automation
-        uses: juancarlosjr97/release-it-containerized@2356c434204221d52216586acc1688d12080b61e # 1.0.12
+        uses: juancarlosjr97/release-it-containerized@25a44812d10962ca6b9093717f0a58a5ae005c4c # 2.2.5
         with:
           git_email: ${{ secrets.GIT_EMAIL }}
           git_username: ${{ secrets.GIT_USERNAME }}
@@ -33,12 +33,12 @@ jobs:
     timeout-minutes: 10
     steps:
       - name: Checkout repository
-        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
           ref: main
 
       - name: Set up Node.js
-        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7
         with:
           node-version-file: .nvmrc
           registry-url: https://registry.npmjs.org
