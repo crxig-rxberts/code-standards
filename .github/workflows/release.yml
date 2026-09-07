@@ -6,15 +6,19 @@ on:
 
 jobs:
   release:
+    name: Release
     if: github.repository == 'crxig-rxberts/code-standards'
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
         with:
           token: ${{ secrets.RELEASE_IT_GITHUB_TOKEN }}
           fetch-depth: 0
 
-      - uses: juancarlosjr97/release-it-containerized@1.0.12
+      - name: Run release automation
+        uses: juancarlosjr97/release-it-containerized@2356c434204221d52216586acc1688d12080b61e # 1.0.12
         with:
           git_email: ${{ secrets.GIT_EMAIL }}
           git_username: ${{ secrets.GIT_USERNAME }}
@@ -22,19 +26,24 @@ jobs:
           plugins_list: "@release-it/conventional-changelog"
 
   publish:
+    name: Publish to npm
     needs: release
     if: github.repository == 'crxig-rxberts/code-standards'
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
         with:
           ref: main
 
-      - uses: actions/setup-node@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
           node-version-file: .nvmrc
           registry-url: https://registry.npmjs.org
 
-      - run: npm publish
+      - name: Publish package
+        run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
