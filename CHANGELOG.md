@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.2.2](https://github.com/crxig-rxberts/code-standards/compare/v0.2.1...v0.2.2) (2026-09-07)
+
+### Chores
+
+* extend centralized Renovate config ([a55ba1a](https://github.com/crxig-rxberts/code-standards/commit/a55ba1ae61d254e543603e97085f25ee412aaee6))
+
 ## [0.2.1](https://github.com/crxig-rxberts/code-standards/compare/v0.2.0...v0.2.1) (2026-09-07)
 
 ### Bug Fixes
