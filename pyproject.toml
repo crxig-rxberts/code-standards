@@ -1,0 +1,11 @@
+[project]
+name = "code-standards"
+version = "0.1.0"
+description = "Placeholder Python project — required only so prek/pre-commit's language: python hook installer (pip install .) can install this repo. No Python code lives here; see code-standards-commit-msg in .pre-commit-hooks.yaml."
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+py-modules = []

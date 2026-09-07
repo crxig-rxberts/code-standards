@@ -41,10 +41,10 @@ The JS hooks pass **staged filenames only**, appended after `--`, so `lint:pre-c
 
 ## Usage
 
-1. Install the base config, pinned to a tag:
+1. Install the base config — `--save-exact` still pins whatever `@latest` resolves to as an exact version in `package.json`:
 
    ```bash
-   npm install --save-dev --save-exact @crxig-rxberts/code-standards@0.1.0
+   npm install --save-dev --save-exact @crxig-rxberts/code-standards@latest
    ```
 
 2. Add the npm scripts:
@@ -82,7 +82,7 @@ The JS hooks pass **staged filenames only**, appended after `--`, so `lint:pre-c
    default_install_hook_types: [commit-msg, pre-commit]
    repos:
      - repo: https://github.com/crxig-rxberts/code-standards
-       rev: v0.1.0
+       rev: <version> # pin to a real tag, e.g. v0.1.0 — Renovate bumps this
        hooks:
          - id: code-standards-js-lint
          - id: code-standards-js-format

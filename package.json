@@ -1,0 +1,49 @@
+{
+  "name": "@crxig-rxberts/code-standards",
+  "version": "0.1.0",
+  "description": "Shared lint/format/commit-hook standards (oxlint, oxfmt, prek, terraform fmt/tflint, markdownlint, conventional commits) for crxig-rxberts projects",
+  "type": "module",
+  "exports": "./index.mjs",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "bin": {
+    "code-standards-js-lint": "bin/js-lint.mjs",
+    "code-standards-js-format": "bin/js-format.mjs",
+    "code-standards-terraform-fmt": "bin/terraform-fmt.mjs",
+    "code-standards-terraform-tflint": "bin/terraform-tflint.mjs",
+    "code-standards-markdown-lint": "bin/markdown-lint.mjs"
+  },
+  "scripts": {
+    "lint:pre-commit": "oxlint --config oxlint.config.mjs",
+    "format:pre-commit": "oxfmt -c oxfmt.config.mjs",
+    "test": "node --test test/",
+    "release": "release-it"
+  },
+  "keywords": [
+    "oxlint",
+    "oxfmt",
+    "prek",
+    "pre-commit",
+    "terraform",
+    "tflint",
+    "markdownlint",
+    "conventional-commits",
+    "code-standards"
+  ],
+  "author": "",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "markdownlint-cli2": "0.23.2"
+  },
+  "devDependencies": {
+    "@release-it/conventional-changelog": "12.0.0",
+    "oxfmt": "0.67.0",
+    "oxlint": "1.82.0",
+    "release-it": "21.0.2"
+  }
+}

@@ -1,0 +1,49 @@
+# Run via prek (https://github.com/j178/prek), a drop-in pre-commit replacement.
+# Install into a repo: prek install && prek install --hook-type commit-msg
+repos:
+  # Dogfooding: this repo shouldn't reference itself via repo:/rev: before it's
+  # pushed and tagged, so it calls its own bin scripts directly instead of
+  # going through the code-standards-js-lint/-format hook install. Consumer
+  # repos use the crxig-rxberts/code-standards repo:/rev: block instead —
+  # see the .pre-commit-config.yaml snippet in README.md.
+  - repo: local
+    hooks:
+      - id: code-standards-js-lint
+        name: code-standards-js-lint
+        entry: node bin/js-lint.mjs
+        language: system
+        types_or: [javascript, jsx, ts, tsx]
+        pass_filenames: true
+      - id: code-standards-js-format
+        name: code-standards-js-format
+        entry: node bin/js-format.mjs
+        language: system
+        types_or: [javascript, jsx, ts, tsx]
+        pass_filenames: true
+      - id: code-standards-terraform-fmt
+        name: code-standards-terraform-fmt
+        entry: node bin/terraform-fmt.mjs
+        language: system
+        files: \.(tf|tfvars)$
+        exclude: \.terraform/.*$
+        pass_filenames: true
+      - id: code-standards-terraform-tflint
+        name: code-standards-terraform-tflint
+        entry: node bin/terraform-tflint.mjs
+        language: system
+        files: \.(tf|tfvars)$
+        exclude: \.terraform/.*$
+        pass_filenames: true
+      - id: code-standards-markdown-lint
+        name: code-standards-markdown-lint
+        entry: node bin/markdown-lint.mjs
+        language: system
+        types: [markdown]
+        pass_filenames: true
+      - id: code-standards-commit-msg
+        name: code-standards-commit-msg
+        language: python
+        additional_dependencies: ["conventional-pre-commit==4.4.0"]
+        entry: conventional-pre-commit
+        args: [--strict]
+        stages: [commit-msg]

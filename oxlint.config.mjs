@@ -1,0 +1,7 @@
+// https://oxc.rs/docs/guide/usage/linter/config.html
+// NOTE: not auto-discovered — invoke oxlint with `--config oxlint.config.mjs`
+import { oxlintConfig } from "./index.mjs";
+
+export default {
+  ...oxlintConfig(),
+};
