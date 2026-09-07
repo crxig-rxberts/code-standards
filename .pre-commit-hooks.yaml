@@ -1,0 +1,50 @@
+- id: code-standards-js-lint
+  name: code-standards-js-lint
+  description: "Runs `npm run lint:pre-commit` (oxlint) in the consumer repo against staged files"
+  entry: code-standards-js-lint
+  language: node
+  types_or: [javascript, jsx, ts, tsx]
+  pass_filenames: true
+
+- id: code-standards-js-format
+  name: code-standards-js-format
+  description: "Runs `npm run format:pre-commit` (oxfmt) in the consumer repo against staged files"
+  entry: code-standards-js-format
+  language: node
+  types_or: [javascript, jsx, ts, tsx]
+  pass_filenames: true
+
+- id: code-standards-terraform-fmt
+  name: code-standards-terraform-fmt
+  description: "Runs `terraform fmt` per directory against staged Terraform files"
+  entry: code-standards-terraform-fmt
+  language: node
+  files: \.(tf|tfvars)$
+  exclude: \.terraform/.*$
+  pass_filenames: true
+
+- id: code-standards-terraform-tflint
+  name: code-standards-terraform-tflint
+  description: "Runs `tflint --chdir` per directory against staged Terraform files"
+  entry: code-standards-terraform-tflint
+  language: node
+  files: \.(tf|tfvars)$
+  exclude: \.terraform/.*$
+  pass_filenames: true
+
+- id: code-standards-markdown-lint
+  name: code-standards-markdown-lint
+  description: "Runs markdownlint-cli2 against staged Markdown files (bundled as a dependency, no consumer install needed)"
+  entry: code-standards-markdown-lint
+  language: node
+  types: [markdown]
+  pass_filenames: true
+
+- id: code-standards-commit-msg
+  name: code-standards-commit-msg
+  description: "Conventional-commit message linting via the conventional-pre-commit PyPI package (no consumer dependency needed)"
+  language: python
+  additional_dependencies: ["conventional-pre-commit==4.4.0"]
+  entry: conventional-pre-commit
+  args: [--strict]
+  stages: [commit-msg]
