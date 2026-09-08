@@ -1,6 +1,6 @@
 {
   "name": "@crxig-rxberts/code-standards",
-  "version": "0.2.4",
+  "version": "0.3.0",
   "description": "Shared lint/format/commit-hook standards (oxlint, oxfmt, prek, terraform fmt/tflint, markdownlint, conventional commits) for crxig-rxberts projects",
   "keywords": [
     "code-standards",
