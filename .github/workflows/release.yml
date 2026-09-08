@@ -32,7 +32,7 @@ jobs:
         run: git remote set-url origin "https://x-access-token:${{ secrets.RELEASE_IT_GITHUB_TOKEN }}@github.com/${{ github.repository }}.git"
 
       - name: Run release automation
-        uses: juancarlosjr97/release-it-containerized@496c538649ff70685250f5f3817b61c1403d82df # 2.2.6
+        uses: juancarlosjr97/release-it-containerized@33efd20a1083ecbabfc4da3a0884fff2eb3434b9 # 2.2.7
         with:
           git_email: ${{ secrets.GIT_EMAIL }}
           git_username: ${{ secrets.GIT_USERNAME }}
