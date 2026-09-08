@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.3.0](https://github.com/crxig-rxberts/code-standards/compare/v0.2.4...v0.3.0) (2026-09-08)
+
+### Features
+
+* decouple npm package release from repo-wide commits ([da3809f](https://github.com/crxig-rxberts/code-standards/commit/da3809fc2b3444a8c6234e337b1454e44fd15573))
+
+### Chores
+
+* **commit-hooks:** release v0.3.0 [skip ci] ([e6fd25d](https://github.com/crxig-rxberts/code-standards/commit/e6fd25d9d42a03190a76616f0712bd5762eea778))
+
 ## [0.2.4](https://github.com/crxig-rxberts/code-standards/compare/v0.2.3...v0.2.4) (2026-09-08)
 
 ### Continuous Integration
