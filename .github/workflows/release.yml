@@ -20,6 +20,16 @@ jobs:
         with:
           token: ${{ secrets.RELEASE_IT_GITHUB_TOKEN }}
           fetch-depth: 0
+          persist-credentials: false
+
+      - name: Configure git remote credentials
+        # release-it-containerized runs in a Docker container that only mounts
+        # $GITHUB_WORKSPACE, not /home/runner/work/_temp. actions/checkout's
+        # persisted credentials live in a temp-file `include.path`, which is
+        # invisible inside the container, so `git push` fails with
+        # "could not read Username for 'https://github.com'". Embed the token
+        # directly in the origin URL (stored in the mounted .git/config) instead.
+        run: git remote set-url origin "https://x-access-token:${{ secrets.RELEASE_IT_GITHUB_TOKEN }}@github.com/${{ github.repository }}.git"
 
       - name: Run release automation
         uses: juancarlosjr97/release-it-containerized@496c538649ff70685250f5f3817b61c1403d82df # 2.2.6
