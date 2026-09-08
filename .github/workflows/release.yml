@@ -31,33 +31,26 @@ jobs:
         # directly in the origin URL (stored in the mounted .git/config) instead.
         run: git remote set-url origin "https://x-access-token:${{ secrets.RELEASE_IT_GITHUB_TOKEN }}@github.com/${{ github.repository }}.git"
 
-      - name: Run release automation
+      # Workspace (npm package) release runs first: only bumps/tags/releases
+      # when packages/commit-hooks/{index.mjs,bin}/package.json actually
+      # changed. publish.yml triggers on the commit-hooks-v* tag this
+      # produces.
+      - name: Run workspace release automation
         uses: juancarlosjr97/release-it-containerized@33efd20a1083ecbabfc4da3a0884fff2eb3434b9 # 2.2.7
         with:
           git_email: ${{ secrets.GIT_EMAIL }}
           git_username: ${{ secrets.GIT_USERNAME }}
           github_token: ${{ secrets.RELEASE_IT_GITHUB_TOKEN }}
           plugins_list: "@release-it/conventional-changelog"
+          command: "--config packages/commit-hooks/.release-it.workspace.mjs"
 
-  publish:
-    name: Publish to npm
-    needs: release
-    if: github.repository == 'crxig-rxberts/code-standards'
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      # Root release tracks every commit to main regardless of type. Tags
+      # v${version}, never touches package.json, never publishes.
+      - name: Run root release automation
+        uses: juancarlosjr97/release-it-containerized@33efd20a1083ecbabfc4da3a0884fff2eb3434b9 # 2.2.7
         with:
-          ref: main
-
-      - name: Set up Node.js
-        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7
-        with:
-          node-version-file: .nvmrc
-          registry-url: https://registry.npmjs.org
-
-      - name: Publish package
-        run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          git_email: ${{ secrets.GIT_EMAIL }}
+          git_username: ${{ secrets.GIT_USERNAME }}
+          github_token: ${{ secrets.RELEASE_IT_GITHUB_TOKEN }}
+          plugins_list: "@release-it/conventional-changelog"
+          command: "--config .release-it.mjs"

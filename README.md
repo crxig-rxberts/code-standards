@@ -21,21 +21,23 @@
 
 ## Purpose
 
-Centralized code standards for `crxig-rxberts` projects, distributed two ways from one repo, one git tag:
+Centralized code standards for `crxig-rxberts` projects, distributed two ways from one repo:
 
 - **Pre-commit hooks**: this repo is itself a pre-commit hook source (`.pre-commit-hooks.yaml`) — consumers reference it via a single `repo:`/`rev:` block in their own `.pre-commit-config.yaml`; prek clones and installs it automatically. No separate `repo:` blocks for Terraform, Markdown, or commit-msg linting — they're all consolidated here so a version bump is one `rev:`, one Renovate PR, across every consuming project.
-- **Base oxlint/oxfmt config**: an importable npm module (`oxlintConfig()`/`oxfmtConfig()`) published to npm from the same git tag. Projects spread the base config and layer their own overrides on top, so a rule change here reaches every project on the next version bump instead of being hand-copied.
+- **Base oxlint/oxfmt config**: an importable npm module (`oxlintConfig()`/`oxfmtConfig()`) published to npm.
+
+Both are versioned together under the `commit-hooks-v*` git tag — bumped only when the hook/package code (`index.mjs`, `bin/`, `package.json`) actually changes, not on every push to `main`. Pin `rev:`/`@version` to that tag. A separate `v*` tag/GitHub Release tracks all repo activity (CI, docs, dependency chores) for a full history, but doesn't move the pre-commit pin or trigger an npm publish — see [Releasing](#releasing).
 
 ## Hooks
 
-| Hook | Description |
-| --- | --- |
-| `code-standards-js-lint` | Runs `npm run lint:pre-commit` (oxlint) in the consumer repo against staged files |
-| `code-standards-js-format` | Runs `npm run format:pre-commit` (oxfmt) in the consumer repo against staged files |
-| `code-standards-terraform-fmt` | Runs `terraform fmt` per directory against staged Terraform files |
-| `code-standards-terraform-tflint` | Runs `tflint --chdir` per directory against staged Terraform files |
-| `code-standards-markdown-lint` | Runs markdownlint-cli2 against staged Markdown files — bundled as our own dependency, no consumer install needed |
-| `code-standards-commit-msg` | Conventional-commit message linting via the `conventional-pre-commit` PyPI package — installed by prek automatically, no consumer dependency needed |
+| Hook                              | Description                                                                                                                                                                                 |
+| --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `code-standards-js-lint`          | Runs `npm run lint:pre-commit` (oxlint) in the consumer repo against staged files                                                                                                           |
+| `code-standards-js-format`        | Runs `npm run format:pre-commit` (oxfmt) in the consumer repo against staged files                                                                                                          |
+| `code-standards-terraform-fmt`    | Runs `terraform fmt` per directory against staged Terraform files                                                                                                                           |
+| `code-standards-terraform-tflint` | Runs `tflint --chdir` per directory against staged Terraform files                                                                                                                          |
+| `code-standards-markdown-lint`    | Runs markdownlint-cli2 against staged Markdown files — bundled as our own dependency, no consumer install needed. Skips `CHANGELOG.md`/`CHANGELOG-*.md` (auto-generated, not hand-authored) |
+| `code-standards-commit-msg`       | Conventional-commit message linting via the `conventional-pre-commit` PyPI package — installed by prek automatically, no consumer dependency needed                                         |
 
 The JS hooks pass **staged filenames only**, appended after `--`, so `lint:pre-commit`/`format:pre-commit` must not use `.` or glob patterns themselves.
 
@@ -82,7 +84,7 @@ The JS hooks pass **staged filenames only**, appended after `--`, so `lint:pre-c
    default_install_hook_types: [commit-msg, pre-commit]
    repos:
      - repo: https://github.com/crxig-rxberts/code-standards
-       rev: <version> # pin to a real tag, e.g. v0.1.0 — Renovate bumps this
+       rev: <version> # pin to a commit-hooks-v* tag, e.g. commit-hooks-v0.1.0 — Renovate bumps this
        hooks:
          - id: code-standards-js-lint
          - id: code-standards-js-format
@@ -148,11 +150,18 @@ Verify before pushing:
 prek run --all-files
 ```
 
-`oxlint.config.mjs`/`oxfmt.config.mjs` at the repo root import from `index.mjs` directly (`./index.mjs`, not the published package) — this repo dogfoods the exact same base config it publishes. `.pre-commit-config.yaml` at the root calls the `bin/*.mjs` scripts directly as local hooks rather than referencing this repo via `repo:`/`rev:`, since it can't reference its own not-yet-tagged state.
+`oxlint.config.mjs`/`oxfmt.config.mjs` at the repo root import from `packages/commit-hooks/index.mjs` directly (not the published package) — this repo dogfoods the exact same base config it publishes. `.pre-commit-config.yaml` at the root calls the `packages/commit-hooks/bin/*.mjs` scripts directly as local hooks rather than referencing this repo via `repo:`/`rev:`, since it can't reference its own not-yet-tagged state.
 
 ## Releasing
 
-`.github/workflows/release.yml` runs on every push to `main`: [`release-it-containerized`](https://github.com/juancarlosjr97/release-it-containerized) handles the git tag, GitHub release, and changelog (conventional commits decide the version bump); a plain `npm publish` step follows since that action has no npm-registry-auth input.
+`packages/commit-hooks/` holds everything that makes up the published package — `index.mjs`, `bin/`, its tests, and `.release-it.workspace.mjs` — except `package.json` itself, which has to stay at the repo root (pre-commit's `language: node` hook install reads `package.json` from wherever the hook repo's root is; `bin`/`exports`/`files` inside it can point anywhere, so they point into `packages/commit-hooks/`).
+
+`.github/workflows/release.yml` runs on every push to `main` and executes [`release-it-containerized`](https://github.com/juancarlosjr97/release-it-containerized) twice, against two configs that share settings via `release-configuration.mjs`:
+
+- **`packages/commit-hooks/.release-it.workspace.mjs`** (tag `commit-hooks-v*`) — scoped to `packages/commit-hooks/index.mjs`, `packages/commit-hooks/bin/`, and `package.json`. Only bumps `package.json`'s version, tags, and writes `packages/commit-hooks/CHANGELOG.md` + a GitHub Release when a commit actually touches the published package. Runs first. `.github/workflows/publish.yml` triggers on this tag and runs `npm publish` — so a CI-only, docs-only, or dependency-chore-only commit never republishes to npm.
+- **`.release-it.mjs`** (tag `v*`) — unscoped, tracks every commit to `main` regardless of type. Writes `CHANGELOG.md` + a GitHub Release for repo-wide history, but never touches `package.json`'s version and never triggers a publish.
+
+`release-configuration.mjs` is written to be copy-pasted into other repos as-is — the only project-specific bits are the `packageName` and `workspacePaths` constants at the top.
 
 One-time repo setup required before this works:
 
@@ -162,4 +171,5 @@ One-time repo setup required before this works:
 
 ## Support Information
 
-- [CHANGELOG](./CHANGELOG.md) — generated by release-it on each release
+- [CHANGELOG](./CHANGELOG.md) — repo-wide history, generated by release-it on every release
+- [packages/commit-hooks/CHANGELOG](./packages/commit-hooks/CHANGELOG.md) — published-package history, generated only when the package itself changes

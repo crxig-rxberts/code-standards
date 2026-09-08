@@ -7,7 +7,7 @@ const ARGV_FILES_START = 2,
   EXIT_FAILURE = 1,
   stagedFiles = () => process.argv.slice(ARGV_FILES_START),
   resolveOwnBin = (binName) =>
-    fileURLToPath(new URL(`../node_modules/.bin/${binName}`, import.meta.url)),
+    fileURLToPath(new URL(`../../../node_modules/.bin/${binName}`, import.meta.url)),
   runOne = (command, args) => {
     const result = spawnSync(command, args(stagedFiles()), { stdio: "inherit" });
 

@@ -2,44 +2,42 @@
   "name": "@crxig-rxberts/code-standards",
   "version": "0.2.4",
   "description": "Shared lint/format/commit-hook standards (oxlint, oxfmt, prek, terraform fmt/tflint, markdownlint, conventional commits) for crxig-rxberts projects",
-  "type": "module",
-  "exports": "./index.mjs",
-  "files": [
-    "index.mjs",
-    "bin/"
+  "keywords": [
+    "code-standards",
+    "conventional-commits",
+    "markdownlint",
+    "oxfmt",
+    "oxlint",
+    "pre-commit",
+    "prek",
+    "terraform",
+    "tflint"
   ],
+  "license": "MIT",
+  "author": "",
+  "bin": {
+    "code-standards-js-format": "packages/commit-hooks/bin/js-format.mjs",
+    "code-standards-js-lint": "packages/commit-hooks/bin/js-lint.mjs",
+    "code-standards-markdown-lint": "packages/commit-hooks/bin/markdown-lint.mjs",
+    "code-standards-terraform-fmt": "packages/commit-hooks/bin/terraform-fmt.mjs",
+    "code-standards-terraform-tflint": "packages/commit-hooks/bin/terraform-tflint.mjs"
+  },
+  "files": [
+    "packages/commit-hooks/index.mjs",
+    "packages/commit-hooks/bin/"
+  ],
+  "type": "module",
+  "exports": "./packages/commit-hooks/index.mjs",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
-  "bin": {
-    "code-standards-js-lint": "bin/js-lint.mjs",
-    "code-standards-js-format": "bin/js-format.mjs",
-    "code-standards-terraform-fmt": "bin/terraform-fmt.mjs",
-    "code-standards-terraform-tflint": "bin/terraform-tflint.mjs",
-    "code-standards-markdown-lint": "bin/markdown-lint.mjs"
-  },
   "scripts": {
     "lint:pre-commit": "oxlint --config oxlint.config.mjs",
     "format:pre-commit": "oxfmt -c oxfmt.config.mjs",
-    "test": "node --test test/",
-    "release": "release-it"
-  },
-  "keywords": [
-    "oxlint",
-    "oxfmt",
-    "prek",
-    "pre-commit",
-    "terraform",
-    "tflint",
-    "markdownlint",
-    "conventional-commits",
-    "code-standards"
-  ],
-  "author": "",
-  "license": "MIT",
-  "engines": {
-    "node": ">=22"
+    "test": "node --test packages/commit-hooks/test/",
+    "release": "release-it",
+    "release:workspace": "release-it --config packages/commit-hooks/.release-it.workspace.mjs"
   },
   "dependencies": {
     "markdownlint-cli2": "0.23.2"
@@ -49,5 +47,8 @@
     "oxfmt": "0.67.0",
     "oxlint": "1.82.0",
     "release-it": "21.0.2"
+  },
+  "engines": {
+    "node": ">=22"
   }
 }
