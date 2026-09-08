@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.2.4](https://github.com/crxig-rxberts/code-standards/compare/v0.2.3...v0.2.4) (2026-09-08)
+
+### Continuous Integration
+
+* run branch workflows on pr creation ([e0266e7](https://github.com/crxig-rxberts/code-standards/commit/e0266e772b68cda03cf86280c3d5b4dfe431dc0e))
+
+### Chores
+
+* **deps:** update all dependencies ([#9](https://github.com/crxig-rxberts/code-standards/issues/9)) ([fc7811a](https://github.com/crxig-rxberts/code-standards/commit/fc7811a971b64f1c63c1869fe73e05253ca5a8cd))
+
 ## [0.2.3](https://github.com/crxig-rxberts/code-standards/compare/v0.2.2...v0.2.3) (2026-09-08)
 
 ### Continuous Integration
