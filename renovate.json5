@@ -1,6 +1,6 @@
 {
   $schema: "https://docs.renovatebot.com/renovate-schema.json",
   extends: [
-    "github>crxig-rxberts/renovate-config#0.2.1",
+    "github>crxig-rxberts/renovate-config#0.4.4",
   ],
 }
