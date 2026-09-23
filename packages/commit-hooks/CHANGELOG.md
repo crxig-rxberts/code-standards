@@ -1,5 +1,10 @@
 # Changelog
 
+* chore(deps): update dependency crxig-rxberts/renovate-config to v0.4.5 (#13) (7494475)
+* chore: release v0.3.1 [skip ci] (dfda41e)
+* chore(deps): update all dependencies (#12) (2b0625e)
+* chore: release v0.3.0 [skip ci] (b597aa6)
+
 ## [0.3.0](https://github.com/crxig-rxberts/code-standards/compare/v0.2.4...commit-hooks-v0.3.0) (2026-09-08)
 
 ### Features
