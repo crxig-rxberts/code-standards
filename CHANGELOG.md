@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.2](https://github.com/crxig-rxberts/code-standards/compare/v0.3.1...v0.3.2) (2026-09-23)
+
+### Chores
+
+* **commit-hooks:** release v0.3.1 [skip ci] ([5e206d8](https://github.com/crxig-rxberts/code-standards/commit/5e206d85df0c99d13cec0d223b9866d3b9e94658))
+* **deps:** update dependency crxig-rxberts/renovate-config to v0.4.5 ([#13](https://github.com/crxig-rxberts/code-standards/issues/13)) ([7494475](https://github.com/crxig-rxberts/code-standards/commit/74944755fc58f0f17dc32044e4fa4bb52e4c9ee9))
+
 ## [0.3.1](https://github.com/crxig-rxberts/code-standards/compare/v0.3.0...v0.3.1) (2026-09-09)
 
 ### Chores
