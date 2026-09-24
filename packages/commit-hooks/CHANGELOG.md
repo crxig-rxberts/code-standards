@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.3.2](https://github.com/crxig-rxberts/code-standards/compare/commit-hooks-v0.3.1...commit-hooks-v0.3.2) (2026-09-24)
+
+### Chores
+
+* **deps:** update all dependencies ([#15](https://github.com/crxig-rxberts/code-standards/issues/15)) ([cc4ab58](https://github.com/crxig-rxberts/code-standards/commit/cc4ab580b64e3540ea9dde6083a801cdd88a1c24))
+
 * chore(deps): update dependency crxig-rxberts/renovate-config to v0.4.5 (#13) (7494475)
 * chore: release v0.3.1 [skip ci] (dfda41e)
 * chore(deps): update all dependencies (#12) (2b0625e)
