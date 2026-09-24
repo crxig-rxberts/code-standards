@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.4](https://github.com/crxig-rxberts/code-standards/compare/v0.3.3...v0.3.4) (2026-09-24)
+
+### Chores
+
+* **commit-hooks:** release v0.3.2 [skip ci] ([30aaf47](https://github.com/crxig-rxberts/code-standards/commit/30aaf475932b39f2fb3a75730c8f5dfed95f7fe5))
+* **deps:** update all dependencies ([#15](https://github.com/crxig-rxberts/code-standards/issues/15)) ([cc4ab58](https://github.com/crxig-rxberts/code-standards/commit/cc4ab580b64e3540ea9dde6083a801cdd88a1c24))
+
 ## [0.3.3](https://github.com/crxig-rxberts/code-standards/compare/v0.3.2...v0.3.3) (2026-09-24)
 
 ### Chores
