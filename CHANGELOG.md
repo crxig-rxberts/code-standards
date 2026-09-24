@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.3.3](https://github.com/crxig-rxberts/code-standards/compare/v0.3.2...v0.3.3) (2026-09-24)
+
+### Chores
+
+* **deps:** update github/codeql-action digest to 1c5b675 ([#14](https://github.com/crxig-rxberts/code-standards/issues/14)) ([758f52a](https://github.com/crxig-rxberts/code-standards/commit/758f52a1d8d420b8f0b4d209ce87a0a6305c02a7))
+
 ## [0.3.2](https://github.com/crxig-rxberts/code-standards/compare/v0.3.1...v0.3.2) (2026-09-23)
 
 ### Chores
