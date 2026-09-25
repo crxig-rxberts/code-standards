@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.3.5](https://github.com/crxig-rxberts/code-standards/compare/v0.3.4...v0.3.5) (2026-09-25)
+
+### Chores
+
+* **deps:** update all dependencies ([#16](https://github.com/crxig-rxberts/code-standards/issues/16)) ([0985fb2](https://github.com/crxig-rxberts/code-standards/commit/0985fb202ddfb0ab383f935f3a9c1cdbf5f44cd4))
+
 ## [0.3.4](https://github.com/crxig-rxberts/code-standards/compare/v0.3.3...v0.3.4) (2026-09-24)
 
 ### Chores
