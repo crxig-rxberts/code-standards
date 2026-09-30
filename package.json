@@ -50,9 +50,9 @@
   },
   "overrides": {
     "release-it": {
-      "undici": "7.29.1"
+      "undici": "8.11.2"
     },
-    "ip-address": "10.7.1"
+    "ip-address": "10.7.2"
   },
   "engines": {
     "node": ">=22"
