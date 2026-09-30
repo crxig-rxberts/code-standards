@@ -48,6 +48,12 @@
     "oxlint": "1.85.0",
     "release-it": "21.1.0"
   },
+  "overrides": {
+    "release-it": {
+      "undici": "7.29.1"
+    },
+    "ip-address": "10.7.1"
+  },
   "engines": {
     "node": ">=22"
   }
