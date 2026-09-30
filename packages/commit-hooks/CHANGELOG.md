@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.3.4](https://github.com/crxig-rxberts/code-standards/compare/commit-hooks-v0.3.3...commit-hooks-v0.3.4) (2026-09-30)
+
+### Chores
+
+* **deps:** update all dependencies ([#31](https://github.com/crxig-rxberts/code-standards/issues/31)) ([ce3e70e](https://github.com/crxig-rxberts/code-standards/commit/ce3e70ede9604317ae658c6a8b43474dbefd23bb))
+
 ## [0.3.3](https://github.com/crxig-rxberts/code-standards/compare/commit-hooks-v0.3.2...commit-hooks-v0.3.3) (2026-09-30)
 
 ### Chores
