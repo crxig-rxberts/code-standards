@@ -1,5 +1,20 @@
 # Changelog
 
+## [0.3.23](https://github.com/crxig-rxberts/code-standards/compare/v0.3.22...v0.3.23) (2026-10-15)
+
+### Bug Fixes
+
+* restore missing ip-address lockfile entry ([5d67eca](https://github.com/crxig-rxberts/code-standards/commit/5d67eca2d1fe4c294ae78dd4d0971c252cebddb2))
+
+### Continuous Integration
+
+* temporarily allowlist known dependency advisories ([207cfa3](https://github.com/crxig-rxberts/code-standards/commit/207cfa384c5eec58115cee977c8f479eeda15c99))
+
+### Chores
+
+* **commit-hooks:** release v0.3.6 [skip ci] ([eaee09e](https://github.com/crxig-rxberts/code-standards/commit/eaee09eec3332fa7cb84c7f6bee59920021930ae))
+* **deps:** update all dependencies ([f1270c6](https://github.com/crxig-rxberts/code-standards/commit/f1270c685e859bcb16132b06ad540d6b942ce9d5))
+
 ## [0.3.22](https://github.com/crxig-rxberts/code-standards/compare/v0.3.21...v0.3.22) (2026-10-01)
 
 ### Chores
