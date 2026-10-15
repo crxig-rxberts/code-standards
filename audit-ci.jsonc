@@ -1,0 +1,13 @@
+{
+  "high": true,
+  "package-manager": "npm",
+  "allowlist": [
+    // braces: no patched release. Remove once markdownlint-cli2's dependency chain is fixed.
+    "GHSA-vfj7-8cjw-p6xm",
+    // basic-ftp: remove once release-it's get-uri dependency adopts a patched version.
+    // A patch exists in basic-ftp 6.x, but get-uri currently requires 5.x.
+    "GHSA-c475-qrg2-pj4r"
+  ],
+  "show-found": true,
+  "show-not-found": true
+}
