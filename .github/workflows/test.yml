@@ -26,4 +26,4 @@ jobs:
         run: npm run test
 
       - name: Audit dependencies
-        run: npm audit --audit-level=high
+        run: npx --yes audit-ci@7.1.0 --config audit-ci.jsonc
