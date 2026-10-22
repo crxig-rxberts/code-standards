@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.25](https://github.com/crxig-rxberts/code-standards/compare/v0.3.24...v0.3.25) (2026-10-22)
+
+### Chores
+
+* **commit-hooks:** release v0.3.8 [skip ci] ([ba9b4a3](https://github.com/crxig-rxberts/code-standards/commit/ba9b4a32dbdee8884ddbdfd947dafb1b64e075f2))
+* **deps:** update dependency undici to v8.12.0 ([#36](https://github.com/crxig-rxberts/code-standards/issues/36)) ([0098705](https://github.com/crxig-rxberts/code-standards/commit/0098705023bc333efd43dd7dce0af4b32c4036ba))
+
 ## [0.3.24](https://github.com/crxig-rxberts/code-standards/compare/v0.3.23...v0.3.24) (2026-10-16)
 
 ### Chores
