@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.3.8](https://github.com/crxig-rxberts/code-standards/compare/commit-hooks-v0.3.7...commit-hooks-v0.3.8) (2026-10-22)
+
+### Chores
+
+* **deps:** update dependency undici to v8.12.0 ([#36](https://github.com/crxig-rxberts/code-standards/issues/36)) ([0098705](https://github.com/crxig-rxberts/code-standards/commit/0098705023bc333efd43dd7dce0af4b32c4036ba))
+
 ## [0.3.7](https://github.com/crxig-rxberts/code-standards/compare/commit-hooks-v0.3.6...commit-hooks-v0.3.7) (2026-10-16)
 
 ### Chores
