@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.3.27](https://github.com/crxig-rxberts/code-standards/compare/v0.3.26...v0.3.27) (2026-10-24)
+
+### Chores
+
+* **deps:** update juancarlosjr97/release-it-containerized action to v2.2.15 ([#38](https://github.com/crxig-rxberts/code-standards/issues/38)) ([c9deb59](https://github.com/crxig-rxberts/code-standards/commit/c9deb5985ca82fffa5837a5390ba8399f234f1b7))
+
 ## [0.3.26](https://github.com/crxig-rxberts/code-standards/compare/v0.3.25...v0.3.26) (2026-10-22)
 
 ### Chores
