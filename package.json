@@ -52,7 +52,7 @@
     "release-it": {
       "undici": "8.12.3"
     },
-    "ip-address": "10.7.4"
+    "ip-address": "10.7.5"
   },
   "engines": {
     "node": ">=22"
