@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.32](https://github.com/crxig-rxberts/code-standards/compare/v0.3.31...v0.3.32) (2026-10-28)
+
+### Chores
+
+* **commit-hooks:** release v0.3.10 [skip ci] ([6278bb9](https://github.com/crxig-rxberts/code-standards/commit/6278bb94415b001da5adf0f872bb71d632abe60e))
+* **deps:** update dependency ip-address to v10.7.5 ([#43](https://github.com/crxig-rxberts/code-standards/issues/43)) ([4f84e82](https://github.com/crxig-rxberts/code-standards/commit/4f84e82319218ae7fb73f91147ec84264d0b7b5d))
+
 ## [0.3.31](https://github.com/crxig-rxberts/code-standards/compare/v0.3.30...v0.3.31) (2026-10-28)
 
 ### Chores
