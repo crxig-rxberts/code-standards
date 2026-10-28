@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.3.31](https://github.com/crxig-rxberts/code-standards/compare/v0.3.30...v0.3.31) (2026-10-28)
+
+### Chores
+
+* **deps:** update dependency crxig-rxberts/renovate-config to v0.4.77 ([#42](https://github.com/crxig-rxberts/code-standards/issues/42)) ([053dcc7](https://github.com/crxig-rxberts/code-standards/commit/053dcc7c80ca95b2ecd81b7ff59cfefd283cb233))
+
 ## [0.3.30](https://github.com/crxig-rxberts/code-standards/compare/v0.3.29...v0.3.30) (2026-10-27)
 
 ### Chores
