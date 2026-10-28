@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.3.10](https://github.com/crxig-rxberts/code-standards/compare/commit-hooks-v0.3.9...commit-hooks-v0.3.10) (2026-10-28)
+
+### Chores
+
+* **deps:** update dependency ip-address to v10.7.5 ([#43](https://github.com/crxig-rxberts/code-standards/issues/43)) ([4f84e82](https://github.com/crxig-rxberts/code-standards/commit/4f84e82319218ae7fb73f91147ec84264d0b7b5d))
+
 ## [0.3.9](https://github.com/crxig-rxberts/code-standards/compare/commit-hooks-v0.3.8...commit-hooks-v0.3.9) (2026-10-22)
 
 ### Chores
