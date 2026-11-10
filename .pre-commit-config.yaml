@@ -44,7 +44,7 @@ repos:
       - id: code-standards-commit-msg
         name: code-standards-commit-msg
         language: python
-        additional_dependencies: ["conventional-pre-commit==4.4.0"]
+        additional_dependencies: ["conventional-pre-commit==4.5.0"]
         entry: conventional-pre-commit
         args: [--strict]
         stages: [commit-msg]
