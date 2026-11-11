@@ -52,7 +52,8 @@
     "release-it": {
       "undici": "8.12.4"
     },
-    "ip-address": "10.7.6"
+    "ip-address": "10.7.6",
+    "re2js": "2.8.7"
   },
   "engines": {
     "node": ">=22"
