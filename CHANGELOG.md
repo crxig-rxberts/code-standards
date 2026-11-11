@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.34](https://github.com/crxig-rxberts/code-standards/compare/v0.3.33...v0.3.34) (2026-11-11)
+
+### Chores
+
+* **commit-hooks:** release v0.3.12 [skip ci] ([a0d69c1](https://github.com/crxig-rxberts/code-standards/commit/a0d69c1bc3ed54da4ff4b05d9ff60f4e13161f4b))
+* **deps:** update dependency re2js to v2.9.1 ([#45](https://github.com/crxig-rxberts/code-standards/issues/45)) ([fed4cc5](https://github.com/crxig-rxberts/code-standards/commit/fed4cc5589ea5c394e027ca348d18853582c99be))
+
 ## [0.3.33](https://github.com/crxig-rxberts/code-standards/compare/v0.3.32...v0.3.33) (2026-11-11)
 
 ### Chores
