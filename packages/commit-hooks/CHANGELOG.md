@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.3.12](https://github.com/crxig-rxberts/code-standards/compare/commit-hooks-v0.3.11...commit-hooks-v0.3.12) (2026-11-11)
+
+### Chores
+
+* **deps:** update dependency re2js to v2.9.1 ([#45](https://github.com/crxig-rxberts/code-standards/issues/45)) ([fed4cc5](https://github.com/crxig-rxberts/code-standards/commit/fed4cc5589ea5c394e027ca348d18853582c99be))
+
 ## [0.3.11](https://github.com/crxig-rxberts/code-standards/compare/commit-hooks-v0.3.10...commit-hooks-v0.3.11) (2026-11-11)
 
 ### Chores
