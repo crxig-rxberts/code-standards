@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.3.11](https://github.com/crxig-rxberts/code-standards/compare/commit-hooks-v0.3.10...commit-hooks-v0.3.11) (2026-11-11)
+
+### Chores
+
+* **deps:** update dependency crxig-rxberts/renovate-config to v0.4.78 ([#44](https://github.com/crxig-rxberts/code-standards/issues/44)) ([681e24f](https://github.com/crxig-rxberts/code-standards/commit/681e24f0f25d51f50b705dbc73a3e5b6cbdacca0))
+
 ## [0.3.10](https://github.com/crxig-rxberts/code-standards/compare/commit-hooks-v0.3.9...commit-hooks-v0.3.10) (2026-10-28)
 
 ### Chores
