@@ -36,7 +36,7 @@ jobs:
       # changed. publish.yml triggers on the commit-hooks-v* tag this
       # produces.
       - name: Run workspace release automation
-        uses: juancarlosjr97/release-it-containerized@e4cdba47b1c3eb751128b6e4ed6761079d5f1593 # 2.2.22
+        uses: juancarlosjr97/release-it-containerized@62f9649c73acf69e463f42010b065c344f85ac6b # 2.2.23
         with:
           git_email: ${{ secrets.GIT_EMAIL }}
           git_username: ${{ secrets.GIT_USERNAME }}
@@ -47,7 +47,7 @@ jobs:
       # Root release tracks every commit to main regardless of type. Tags
       # v${version}, never touches package.json, never publishes.
       - name: Run root release automation
-        uses: juancarlosjr97/release-it-containerized@e4cdba47b1c3eb751128b6e4ed6761079d5f1593 # 2.2.22
+        uses: juancarlosjr97/release-it-containerized@62f9649c73acf69e463f42010b065c344f85ac6b # 2.2.23
         with:
           git_email: ${{ secrets.GIT_EMAIL }}
           git_username: ${{ secrets.GIT_USERNAME }}
